@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Articles by Category - Global News Network</title>
+
+  <link rel="stylesheet" href="../css_styling/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    .article-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .article-card img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .article-content {
+      flex: 1;
+    }
+    .article-title {
+      font-size: 1.2rem;
+      margin: 0 0 10px 0;
+      color: #2c3e50;
+    }
+    .article-date {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .article-content a {
+      display: inline-block;
+      margin-top: 8px;
+      color: #c0392b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html" style="color: white; text-decoration: none;"><h3>Global News Network</h3></a>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="category.html">Category</a></li>
+      <li><a href="article.html">Article</a></li>
+      <li><a href="contact.php">Contact Us</a></li>
+      <li><a href="AboutUs.html">About Us</a></li>
+    </ul>
+    <button type="button" onclick="window.location.href='article.html'">
+      <i class="fas fa-search"></i>
+     </button>
+  </nav>
+
+  <form action="article.html" method="GET" class="search-bar">
+  <input type="search" name="search" placeholder="Search articles..." required aria-label="Search" />
+  <button type="submit" aria-label="Search"></button>
+  </form>
+
+  <!-- Main -->
+  <main role="main">
+    <section class="api" aria-labelledby="articles-heading">
+      <h2 id="articles-heading">Articles</h2>
+      <div id="articles-container">
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Global News Network || Aya Almadhon</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a> | <a href="#">Terms</a>
+    </div>
+    <div class="social">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const container = document.getElementById('articles-container');
+const params = new URLSearchParams(window.location.search);
+const searchQuery = params.get('search') || ''; // Get search query from URL or empty string
+
+if (searchQuery) {
+  // Show current search term
+  const heading = document.getElementById('articles-heading');
+  heading.textContent = `Search results for "${searchQuery}"`;
+}
+
+fetch(`http://localhost/News_website/php_section/searchArticle.php?search=${encodeURIComponent(searchQuery)}`)
+  .then(res => res.json())
+  .then(data => {
+    container.innerHTML = '';
+
+    if (!data.length) {
+      container.innerHTML = '<p>No articles found for this search.</p>';
+      return;
+    }
+
+    data.forEach(article => {
+      const div = document.createElement('div');
+      div.classList.add('article-card');
+
+      div.innerHTML = `
+        <img src="${article.image_url || '../assets/images/people.jpg'}" alt="${article.title || 'Article Image'}" />
+        <div class="article-content">
+          <h3 class="article-title">${article.title}</h3>
+          <div class="article-date">${new Date(article.published_date).toLocaleDateString()}</div>
+          <p>${article.content.substring(0, 150)}...</p>
+          <a href="article.html?article_id=${article.article_id}">Read more</a>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  })
+  .catch(err => {
+    container.innerHTML = '<p>Failed to load articles.</p>';
+    console.error(err);
+  });
+
+  </script>
+
+</body>
+</html>

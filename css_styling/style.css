@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
+
+:root {
+  --main-colorR: #c0392b;
+  --main-colorB: #2c3e50;
+  --white: #fff;
+  --black: #000;
+  --gray: #EEEEEE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--gray);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== Header ========== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 300px;
+  color: var(--white);
+  background-color: var(--main-colorB);
+}
+
+.header .social-media a,
+.header .login-signup a {
+  color: var(--white);
+  margin-right: 10px;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  background-color: var(--main-colorR);
+  padding: 10px 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.navbar .logo a {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar .nav-list {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-list li a {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.navbar button {
+  background-color: var(--white);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar button i {
+  color: var(--main-colorR);
+}
+
+/* ========== News Container ========== */
+.newsContainer {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/images/people.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+.newsContainer .text {
+  color: var(--white);
+  padding: 150px 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Main & Section ========== */
+main {
+  background-color: var(--gray);
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+main h2 {
+  color: var(--main-colorR);
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+main hr {
+  border: none;
+  border-top: 2px solid var(--main-colorB);
+  margin-bottom: 20px;
+}
+
+/* ========== Search Bar ========== */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto 0;
+  position: relative;
+  border-radius: 30px;
+  background-color: var(--white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.search-bar input[type="search"] {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--main-colorB);
+}
+
+.search-bar input::placeholder {
+  color: #999;
+  font-weight: 500;
+}
+
+.search-bar::after {
+  content: "\f002";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--main-colorR);
+}
+
+/* ========== Main & Aside Layout ========== */
+.content-wrapperMA {
+  display: flex;
+  padding: 10px 200px;
+  gap: 30px;
+}
+
+.content-wrapperMA main {
+  flex: 0 0 70%;
+}
+
+.content-wrapperMA aside {
+  flex: 0 0 30%;
+}
+
+/* ========== World News Section ========== */
+.breaking-news {
+  display: flex;
+  gap: 20px;
+}
+
+.world-main-article,
+.world-sub-articles article {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.world-main-article img,
+.world-sub-articles img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.world-main-article h3,
+.world-sub-articles h3 {
+  font-size: 18px;
+  color: var(--main-colorB);
+}
+
+/* ========== Featured Section ========== */
+.featured .grid {
+  display: flex;
+  gap: 20px;
+}
+
+.featured article {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.featured article:hover {
+  transform: scale(1.02);
+}
+
+.featured img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* ========== Latest Section ========== */
+.latest ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.latest li {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.latest li:hover {
+  transform: scale(1.01);
+}
+
+.latest img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ========== Category Section ========== */
+.category {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.category h2 {
+  color: var(--main-colorR);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.category article h3 {
+  font-size: 18px;
+  color: var(--main-colorB);
+}
+
+/* ========== Trending Section ========== */
+.trending {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.trending h2 {
+  color: var(--main-colorR);
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* ========== Advertisement Section ========== */
+.ads {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ads h2 {
+  color: var(--main-colorR);
+  margin-bottom: 10px;
+}
+
+.ads img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.ads button {
+  background-color: var(--main-colorR);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* ========== Contact Section ========== */
+.contact-body {
+  background-color: var(--gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.contact-form {
+  background-color: var(--white);
+  max-width: 600px;
+  width: 100%;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  font-family: "Poppins", sans-serif;
+  color: var(--main-colorB);
+}
+
+.contact-form h1 {
+  font-size: 26px;
+  color: var(--main-colorR);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--main-colorB);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: var(--main-colorB);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--main-colorR);
+  box-shadow: 0 0 5px rgba(192, 57, 43, 0.2);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  width: 100%;
+  background-color: var(--main-colorR);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #a93226;
+}
+
+
+/* ========== Footer ========== */
+footer {
+  background-color: var(--main-colorB);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.footer-links a {
+  color: #ccc;
+  margin: 0 10px;
+}
+
+.social a {
+  color: #ddd;
+  margin: 0 8px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .header,
+  .navbar {
+    padding: 10px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .nav-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .content-wrapperMA {
+    flex-direction: column;
+    padding: 10px 40px;
+  }
+
+  .newsContainer .text {
+    padding: 100px 40px;
+  }
+
+  .api {
+    padding: 10px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header,
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .newsContainer .text {
+    padding: 80px 20px;
+  }
+
+  .navbar .logo a {
+    font-size: 18px;
+  }
+
+  .navbar .nav-list {
+    gap: 10px;
+  }
+
+  .api {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .logo a {
+    font-size: 16px;
+  }
+
+  .search-bar input,
+  .navbar .nav-list a {
+    font-size: 14px;
+  }
+
+  .newsContainer .text {
+    padding: 60px 15px;
+    font-size: 14px;
+  }
+}
