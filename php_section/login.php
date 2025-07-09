@@ -17,15 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user = $result->fetch_assoc()) {
         if (password_verify($password, $user['password'])) {
             session_regenerate_id(true);
-            $_SESSION['user'] = $user['username'];
-            header("Location: welcome.php");
+            $_SESSION['user_id']=$user['user_id'];
+            $_SESSION['role']=$user['role'];
+            $_SESSION['user']=$user['username'];
+
+            if($user['role']==='admin'){
+              header("Location: ../php_section/admin_dashboard.php");
+              } else {
+              header("Location: ../Html_section/index.html");
+            }
             exit;
-        } else {
-            $error = "Incorrect password.";
-        }
-    } else {
-        $error = "User not found.";
     }
+  }
 }
 ?>
 

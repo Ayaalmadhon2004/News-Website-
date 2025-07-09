@@ -27,8 +27,12 @@ CREATE TABLE IF NOT EXISTS articles (
 );
 
 INSERT INTO users (username, email, password, role) VALUES
-('admin', 'admin@example.com', '$2y$10$examplehashedpassword', 'admin'),
-('aya', 'aya@example.com', '$2y$10$examplehashedpassword', 'user');
+('admin', 'admin@example.com', '$2y$10$A7gPZzyRJ3AzUeqgZ4lgNeNQZ6zJtCy2Oh.XElAkL6wrPaFhUF0zK', 'admin'),
+('aya', 'aya@example.com', '$2y$10$examplehashedpassword', 'user'),
+('admin2', 'admin2@example.com', '$2y$10$A7gPZzyRJ3AzUeqgZ4lgNeNQZ6zJtCy2Oh.XElAkL6wrPaFhUF0zK', 'admin');
+('finalAdmin', 'final-admin@example.com', '$2y$10$SO07QFjIOTKsftyZMgfO0ObgKQwddOwbqsH3envSu4vEBCFC.Cvy.', 'admin');
+
+
 
 INSERT INTO categories (category_name) VALUES
 ('Politics'), 
