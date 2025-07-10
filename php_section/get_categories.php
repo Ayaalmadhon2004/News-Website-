@@ -2,23 +2,19 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
-// إعدادات الاتصال
 $host = 'localhost';
 $user = 'root';
 $pass = '';
 $db = 'news_db';
 
-// الاتصال بقاعدة البيانات
 $conn = new mysqli($host, $user, $pass, $db);
 
-// التحقق من الاتصال
 if ($conn->connect_error) {
     http_response_code(500);
     echo json_encode(["error" => "Database connection failed"]);
     exit();
 }
 
-// جلب الفئات بدون أي شرط
 $sql = "SELECT category_id, category_name FROM categories";
 $result = $conn->query($sql);
 

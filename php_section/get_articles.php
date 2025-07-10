@@ -17,6 +17,7 @@ if (!isset($_GET['category_id'])) {
     exit();
 }
 
+
 $category_id = intval($_GET['category_id']);
 
 // Fetch articles for that category

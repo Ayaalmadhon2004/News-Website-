@@ -265,6 +265,8 @@ main hr {
   color: var(--main-colorR);
   font-size: 22px;
   margin-bottom: 10px;
+  margin-top:10px;
+  align-items: left;
 }
 
 .category article h3 {
